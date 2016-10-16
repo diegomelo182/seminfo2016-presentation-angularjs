@@ -64,6 +64,73 @@
 
 	angular
 		.module('application')
+		.controller('MainCtrl', MainCtrl);
+
+	MainCtrl.$inject = ['$http'];
+
+	function MainCtrl($http) {
+	    var vm = this;
+	    vm.foo = 'Application works!';
+	}
+})();</code></pre>
+				</section>
+				<section>
+<pre style="width: 100%;"><code class="xml"><div ng-controller="MainCtrl as ctrl">
+	<h1 ng-bind='ctrl.foo'></h1>
+	ou
+	<h1>{{ ctrl.foo }}</h1>
+</div></code></pre>
+				</section>
+				<section>
+					<h1>Factory</h1>
+					<p class="fragment">Camada pela qual podemos retornar objetos com premissas, ou até mesmo um array de objetos e injetar em nossos components.</p>
+					<p class="fragment">Exemplo: podemos criar uma função(método) que faça uma requisição GET em uma determinada URL, e usar o Factory para nos retornar a premissa para que possamos executar essa ação em nosso component.</p>
+				</section>
+				<section>
+<pre style="width: 100%;"><code data-trim data-noescape>
+(function(){
+	'use restrict';
+
+	angular
+		.module('application')
+		.factory('myFactory', myFactory)
+
+	myFactory.$inject = ['$http'];
+	function myFactory($http) {
+		factory = {
+			getData: getData
+		};
+
+		return factory;
+
+		function getData() {
+			return $http({
+				method: 'get',
+				url: 'http://example.com/myFactory.json'
+			});
+		}
+	}
+})();
+</code></pre>
+				</section>
+				<section>
+					<h1>View</h1>
+					<p class="fragment">Podemos dizer que essa camada é a que entrega o resultado visual ao cliente, ou seja, é nela que teremos o nosso HTML.</p>
+				</section>
+				<section>
+					<img src="imgs/angular-logo.png" alt="AngularJS" class="custom-image">
+					<h1>AngularJS Components</h1>
+					<p class="fragment">Feature adicionada na versão 1.5</p>
+				</section>
+				<section>
+					<p>O conceito de Web Components é bem simples, basta imaginar que tenhamos reaproveitar um conjunto de camadas como Controller e View em algum momento na nossa aplicação e ao invés de duplicarmos as mesmas, as agrupamos em um Compent para possamos reutilizá-lo quando quisermos.</p>
+				</section>
+				<section>
+<pre style="width: 100%;"><code data-trim data-noescape>(function() {
+	'use strict';
+
+	angular
+		.module('application')
 		.component('application', {
 			templateUrl: '/app/application.template.html',
 			controller: MainCtrl
@@ -78,7 +145,15 @@
 })();</code></pre>
 				</section>
 				<section>
-					<h1>Factory</h1>
+<pre style="width: 100%;"><code class="xml"><div id="application">
+	<h1 ng-bind='$ctrl.foo'></h1>
+	ou
+	<h1>{{ $ctrl.foo }}</h1>
+</div></code></pre>
+				</section>
+				<section>
+					<h1>Let's Rock!!!</h1>
+					<h3>Vamos por a mão na massa.</h3>
 				</section>
 			</div>
 		</div>
