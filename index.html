@@ -35,6 +35,51 @@
 					<h3>Fullstack Developer</h3> 
 					<h4>Universidade Tiradentes</h4>
 				</section>
+				<section>
+					<h1>O que é?</h1>
+					<p class="fragment">AngularJS é um framework baseado em javascript onde podemos manipular os elementos HTML através do DOM, injetar módulos e componentes, criar elementos HTML customizados (directives) e até usar rotas.</p>
+				</section>
+				<section>
+					<h1>Como Funciona?</h1>
+					<p class="fragment">Ao contrário de frameworks back end (.NET, Rails, Spring..) o AngularJS roda no client side, ou seja na máquina do cliente, sendo assim, retirando boa parte da Aplicação do server side e movendo para o client side, como controle de rotas e renderização de páginas por exemplo. Com isso o back end passaria a servir uma API para o front end consumir.</p>
+				</section>
+				<section>
+					<img src="imgs/angular-logo.png" alt="AngularJS" class="custom-image">
+					<h1>Conceitos</h1>
+				</section>
+				<section>
+					<h1>Modules</h1>
+					<p class="fragment">Podemos imaginar que um Module é um container onde temos pedaços de nossa aplicação como controllers, services, filters, directives, etc…</p>
+				</section>
+				<section>
+					<img src="imgs/angularjs-modules.png" alt="Modules">
+				</section>
+				<section>
+					<h1>Controllers</h1>
+					<p class="fragment">Camada onde ocorre interação direta com a view, através dela podemos manipular o DOM(as tags HTML) ou fazer um data binding de um form por exemplo.</p>
+				</section>
+				<section>
+<pre style="width: 100%;"><code data-trim data-noescape>(function() {
+	'use strict';
+
+	angular
+		.module('application')
+		.component('application', {
+			templateUrl: '/app/application.template.html',
+			controller: MainCtrl
+		});
+
+	MainCtrl.$inject = ['$http'];
+
+	function MainCtrl($http) {
+	    var vm = this;
+	    vm.foo = 'Application works!';
+	}
+})();</code></pre>
+				</section>
+				<section>
+					<h1>Factory</h1>
+				</section>
 			</div>
 		</div>
 
